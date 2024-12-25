@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jax Movies - vidsrc.me</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100svh;
+      }
+      :root {
+        color-scheme: light dark;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="margin: 1rem">
+      <input id="txtImdbId" placeholder="imdb id" onInput="onSetSrc()" />
+    </div>
+
+    <iframe
+      src="https://vidsrc.me/embed/movie?imdb="
+      style="width: 100%; height: 100%"
+      frameborder="0"
+      referrerpolicy="origin"
+      allowfullscreen
+    ></iframe>
+    <script>
+      const ui = {
+        txtImdbId: document.querySelector("#txtImdbId"),
+        iframe: document.querySelector("iframe"),
+      }
+
+      function onSetSrc() {
+        ui.iframe.src =
+          "https://vidsrc.me/embed/movie?imdb=" + ui.txtImdbId.value
+        localStorage.setItem("imdb", ui.txtImdbId.value)
+      }
+
+      window.onload = () => {
+        ui.txtImdbId.value = localStorage.getItem("imdb") || ""
+        onSetSrc()
+      }
+    </script>
+  </body>
+</html>
