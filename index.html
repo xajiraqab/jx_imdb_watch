@@ -11,50 +11,61 @@
         margin: 0;
         height: 100svh;
       }
+
       :root {
         color-scheme: light dark;
       }
 
       a {
-		    display: flex; 
-        gap: 1ch; 
-        align-items: center; 
+        display: flex;
+        gap: 1ch;
+        align-items: center;
         margin-left: auto;
-	    }
-	
-	    header {
-	      margin: 1rem;
+      }
+
+      header {
+        margin: 1rem;
         display: flex;
         gap: 1rem;
-        align-items: center;
-	    }
-      
+      }
+
       @media only screen and (max-width: 600px) {
         header {
           flex-direction: column;
-      	  align-items: start;
+          align-items: start;
         }
-        
+
         a {
-      	  margin-left: 0;
+          margin-left: 0;
         }
       }
     </style>
   </head>
   <body>
     <header>
-    	<input id="txtImdbId" placeholder="imdb id" onInput="onSetSrc()" />
-    	<div>👉 https://www.imdb.com/title/<span style="color: #7dd3fc; font-weight: bold;">tt0311289</span></div>
-    	<a href="https://brave.com/" target="_blank">user <img width="24px" src="https://seeklogo.com/images/B/brave-logo-F5E1D99D9E-seeklogo.com.png"/> for no Ads</a>
-    </header>   
+      <input id="txtImdbId" placeholder="imdb id" onInput="onSetSrc()" />
+      <div>
+        👉 https://www.imdb.com/title/
+        <span style="color: #7dd3fc; font-weight: bold"> tt0311289 </span>
+      </div>
+      <a href="https://brave.com/" target="_blank">
+        user
+        <img
+          width="24px"
+          src="https://seeklogo.com/images/B/brave-logo-F5E1D99D9E-seeklogo.com.png"
+        />
+        for no Ads
+      </a>
+    </header>
 
     <iframe
-      src="https://vidsrc.me/embed/movie?imdb="
+      src=""
       style="width: 100%; height: 100%"
       frameborder="0"
       referrerpolicy="origin"
       allowfullscreen
     ></iframe>
+
     <script>
       const ui = {
         txtImdbId: document.querySelector("#txtImdbId"),
