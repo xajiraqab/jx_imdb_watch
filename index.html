@@ -21,6 +21,11 @@
         gap: 1ch;
         align-items: center;
         margin-left: auto;
+        color: rgba(255, 255, 255, 0.87);
+      }
+
+      a:hover {
+        color: #7dd3fc;
       }
 
       header {
@@ -44,9 +49,19 @@
   <body>
     <header>
       <input id="txtImdbId" placeholder="imdb id" onInput="onSetSrc()" />
-      <div style="display: flex; align-items: center">
-        e.g: https://www.imdb.com/title/
-        <span style="color: #7dd3fc; font-weight: bold">tt0311289</span>
+      <div style="display: flex; align-items: center; gap: 1ch">
+        e.g:
+        <a
+          id="source"
+          href="https://www.imdb.com/title/tt0311289"
+          target="_blank"
+          style="display: flex; align-items: center; gap: 0"
+        >
+          <span>https://www.imdb.com/title/</span>
+          <span id="lblImdbId" style="color: #7dd3fc; font-weight: bold"
+            >tt0311289</span
+          >
+        </a>
       </div>
       <a href="https://brave.com/" target="_blank">
         use
@@ -70,12 +85,16 @@
       const ui = {
         txtImdbId: document.querySelector("#txtImdbId"),
         iframe: document.querySelector("iframe"),
+        imdbSource: document.querySelector("#source"),
+        lblImdbId: document.querySelector("#lblImdbId"),
       }
 
       function onSetSrc() {
-        ui.iframe.src =
-          "https://vidsrc.me/embed/movie?imdb=" + ui.txtImdbId.value
-        localStorage.setItem("imdb", ui.txtImdbId.value)
+        const src = ui.txtImdbId.value
+        ui.iframe.src = "https://vidsrc.me/embed/movie?imdb=" + src
+        localStorage.setItem("imdb", src)
+        ui.lblImdbId.textContent = src
+        ui.imdbSource.href = "https://www.imdb.com/title/" + src
       }
 
       window.onload = () => {
