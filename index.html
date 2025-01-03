@@ -58,9 +58,9 @@
           style="display: flex; align-items: center; gap: 0"
         >
           <span>https://www.imdb.com/title/</span>
-          <span id="lblImdbId" style="color: #7dd3fc; font-weight: bold"
-            >tt0311289</span
-          >
+          <span id="lblImdbId" style="color: #7dd3fc; font-weight: bold">
+            tt0311289
+          </span>
         </a>
       </div>
       <a href="https://brave.com/" target="_blank">
@@ -98,7 +98,7 @@
       }
 
       window.onload = () => {
-        ui.txtImdbId.value = localStorage.getItem("imdb") || ""
+        ui.txtImdbId.value = localStorage.getItem("imdb") || "tt0311289"
         onSetSrc()
       }
     </script>
